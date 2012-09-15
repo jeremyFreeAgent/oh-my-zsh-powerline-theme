@@ -38,7 +38,7 @@ local rvm_ruby_info='%F{216} $(rvm-prompt i v g)'" %k%f""%F{166}%K{162}"$'\u2b80
 
 #local timelen=15
 
-local time=$POWERLINE_COLOR_FG_WHITE$'\u2b82'"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY%D{%H:%M:%S}  "$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE %D{%Y-%m-%d} %f%k"
+local time=$POWERLINE_COLOR_FG_WHITE$'\u2b82'"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY%D{%H:%M:%S} "$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE %D{%Y-%m-%d} %f%k"
 local info="%k%f%F{black}%K{118} %1~ %k""%F{118}%K{075}"$'\u2b80'""%f"%F{237}"$'`git_prompt_info`'" %k%f""%F{075}%K{166}"$'\u2b80'"$rvm_ruby_info"
 
 #local pwdsize=${#${%~}}
