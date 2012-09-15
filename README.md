@@ -3,10 +3,16 @@ oh-my-zsh-powerline-theme
 
 oh-my-zsh Powerline style Theme
 
+This is a modified two-line version, one for information, one for input.
+
 Preview
 -------
 
+Original version:
 ![Preview](http://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme/raw/master/preview.png)
+
+Modified two-line version:
+![Preview](http://github.com/brucehsu/oh-my-zsh-powerline-theme/raw/master/two-linepreview.png)
 
 Set Up
 ------
