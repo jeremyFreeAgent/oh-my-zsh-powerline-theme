@@ -31,27 +31,29 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%F{220]➜%f"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%F{082]═%f"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%F{190]✭%f"
 
-local rvm_ruby_info='%F{216} $(rvm-prompt i v g)'" %k%f""%F{166}%K{162}"$'\u2b80'%f
 
-#local TERMWIDTH
-#(( TERMWIDTH = ${COLUMNS} - 1 ))
-
-#local timelen=15
+local static_len=34
 
 local time=$POWERLINE_COLOR_FG_WHITE$'\u2b82'"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY%D{%H:%M:%S} "$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE %D{%Y-%m-%d} %f%k"
+local rvm_ruby_info='%F{216} $(rvm-prompt i v g)'" %k%f""%F{166}%K{129}"$'\u2b80'%f
 local info="%k%f%F{black}%K{118} %1~ %k""%F{118}%K{075}"$'\u2b80'""%f"%F{237}"$'`git_prompt_info`'" %k%f""%F{075}%K{166}"$'\u2b80'"$rvm_ruby_info"
 
-#local pwdsize=${#${%~}}
+function get_git_branch() {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return 0
+    ref=${ref#refs/heads/}
+    echo "$ref       "
+}
 
-#PR_FILLBAR=""
-#PR_PWDLEN=""
-#typeset -A altchar
-#set -A altchar ${(s..)terminfo[acsc]}
-#PR_HBAR=${altchar[ ]: }
-
-
+function get_zsh_pwd() {
+    path=`echo $PWD | awk -F/ '{print $NF}'`
+    if [ "$PWD" = "$HOME" ]; then
+	path='~'
+    fi
+    echo $path
+}
+#(($TERMWIDTH-${#$(get_git_branch)}-${#$(get_zsh_pwd)}-${#$(rvm-prompt i v     g)}-$static_len))
 PROMPT="
-"$info""$time"
+"$info$'${(l.((${COLUMNS}+2-${#$(get_git_branch)}-${#$(get_zsh_pwd)}-${#$(rvm-prompt i v g)}-$static_len))...)}'$time"
 %K{blue}%F{white} %n %f%F{blue}%K{white}"$'\u2b80'"%F{black}@%m%k%f%F{white}"$'\u2b80'"%f%k "
 
 #RPROMPT=$POWERLINE_COLOR_FG_WHITE$'\u2b82'"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY%D{%H:%M:%S}  "$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE %D{%Y-%m-%d} %f%k"
