@@ -32,12 +32,6 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%F{082]═%f"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%F{190]✭%f"
 
 
-local static_len=34
-
-local time=$POWERLINE_COLOR_FG_WHITE$'\u2b82'"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY%D{%H:%M:%S} "$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE %D{%Y-%m-%d} %f%k"
-local rvm_ruby_info='%F{216} $(rvm-prompt i v g)'" %k%f""%F{166}%K{129}"$'\u2b80'%f
-local info="%k%f%F{black}%K{118} %1~ %k""%F{118}%K{075}"$'\u2b80'""%f"%F{237}"$'`git_prompt_info`'" %k%f""%F{075}%K{166}"$'\u2b80'"$rvm_ruby_info"
-
 function get_git_branch() {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return 0
     ref=${ref#refs/heads/}
@@ -51,9 +45,23 @@ function get_zsh_pwd() {
     fi
     echo $path
 }
-#(($TERMWIDTH-${#$(get_git_branch)}-${#$(get_zsh_pwd)}-${#$(rvm-prompt i v     g)}-$static_len))
+
+local pl_static_len=34
+
+local pl_rvm_info='%K{166}%F{216} $(rvm-prompt i v g)'" %k%f""%F{166}%K{129}"$'\u2b80'%f
+local pl_dir="%F{black}%K{118} %1~ %k%F{118}%K{075}"$'\u2b80'"%f%k"
+local pl_git_branch="%K{075}%F{237}"$'`git_prompt_info`'" %k%f%F{075}%K{166}"$'\u2b80'" %f%k"
+local pl_info="${pl_dir}${pl_git_branch}${pl_rvm_info}"
+
+local pl_fill='${(l.((${COLUMNS}+2-${#$(get_git_branch)}-${#$(get_zsh_pwd)}-${#$(rvm-prompt i v g)}-$pl_static_len))...)}'
+
+local pl_time=$POWERLINE_COLOR_FG_WHITE$'\u2b82'"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY%D{%H:%M:%S} "$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE %D{%Y-%m-%d} %f%k"
+
+local pl_user="%K{blue}%F{white} %n %f%k%F{blue}%K{white}"$'\u2b80'"%f%k"
+local pl_host="%K{white}%F{black}@%m%k%f%F{white}"$'\u2b80'"%f%k"
+
 PROMPT="
-"$info$'${(l.((${COLUMNS}+2-${#$(get_git_branch)}-${#$(get_zsh_pwd)}-${#$(rvm-prompt i v g)}-$static_len))...)}'$time"
-%K{blue}%F{white} %n %f%F{blue}%K{white}"$'\u2b80'"%F{black}@%m%k%f%F{white}"$'\u2b80'"%f%k "
+${pl_info}${pl_fill}${pl_time}
+${pl_user}${pl_host} "
 
 #RPROMPT=$POWERLINE_COLOR_FG_WHITE$'\u2b82'"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY%D{%H:%M:%S}  "$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE %D{%Y-%m-%d} %f%k"
