@@ -55,7 +55,15 @@ if [ "$POWERLINE_DETECT_SSH" != "" ]; then
     POWERLINE_SEC1_TXT=%F{white}
   fi
 fi
-PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT %n %k%f$POWERLINE_SEC1_FG%K{blue}"$'\u2b80'"%k%f%F{white}%K{blue} "$POWERLINE_CURRENT_PATH" "$POWERLINE_GIT_INFO_LEFT"%k%f%F{blue}"$'\u2b80'"%f "
+
+add-zsh-hook precmd build_prompt
+build_prompt () {
+[ $VIRTUAL_ENV ] && {
+  venv_name=$(basename "$VIRTUAL_ENV")
+  local venv_status=' %F{166}‹%f$POWERLINE_SEC1_TXT$venv_name%F{166}›'
+}
+
+PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT"$venv_status"$POWERLINE_SEC1_TXT %n %k%f$POWERLINE_SEC1_FG%K{blue}"$'\u2b80'"%k%f%F{white}%K{blue} "$POWERLINE_CURRENT_PATH"%k%f%F{white}%K{blue} "$POWERLINE_GIT_INFO_LEFT"%k%f%F{blue}"$'\u2b80'"%f "
 
 if [ "$POWERLINE_NO_BLANK_LINE" = "" ]; then
     PROMPT="
@@ -63,3 +71,4 @@ if [ "$POWERLINE_NO_BLANK_LINE" = "" ]; then
 fi
 
 RPROMPT=$POWERLINE_GIT_INFO_RIGHT$POWERLINE_COLOR_FG_WHITE$'\u2b82'"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY$POWERLINE_RIGHT_B "$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE $POWERLINE_RIGHT_A %f%k"
+}
