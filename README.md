@@ -99,7 +99,13 @@ POWERLINE_NO_BLANK_LINE="true"
 If you want full path:
 
 ```
-POWERLINE_FULL_CURRENT_PATH="true"
+POWERLINE_PATH="full"
+```
+
+If you want to display ```~``` instead of your full path:  
+
+```
+POWERLINE_PATH="short"
 ```
 
 If you want git info on right instead of left:
