@@ -1,6 +1,6 @@
 # FreeAgent puts the powerline style in zsh !
 
-if [ $POWERLINE_DISABLE_RVM = "true" ]; then
+if [ "$POWERLINE_DISABLE_RVM" = "true" ]; then
   POWERLINE_RVM_PROMPT=""
 else
   POWERLINE_RVM_PROMPT="%F{240}"$'\ue0b2'"%K{240}%F{white}"' $(rvm-prompt)%K{240} '
