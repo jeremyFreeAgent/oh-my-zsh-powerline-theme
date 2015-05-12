@@ -34,7 +34,7 @@ By default, at the right of the powerline are displayed the date and the time.
 If you don't want date or time, you can choose what you want to display:
 
 ```
-POWERLINE_RIGHT_B="date replacement"
+POWERLINE_RIGHT_B="time replacement"
 ```
 
 Or if you don't want to display anything:
@@ -60,7 +60,13 @@ POWERLINE_RIGHT_A="mixed"
 
 If you want to display a custom text next to time:
 ```
-POWERLINE_RIGHT_A="Your very best text"
+POWERLINE_RIGHT_A="blackfire.io"
+```
+
+If you want to change the color of the `POWERLINE_RIGHT_A` element:
+```
+POWERLINE_RIGHT_A_COLOR_FRONT="black"
+POWERLINE_RIGHT_A_COLOR_BACK="red"
 ```
 
 If you want to change the date format to what you want:
