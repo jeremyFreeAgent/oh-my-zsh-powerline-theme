@@ -104,7 +104,11 @@ ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
         POWERLINE_GIT_INFO_RIGHT=""
     else
         POWERLINE_GIT_INFO_LEFT=""
-        POWERLINE_GIT_INFO_RIGHT="%F{white}"$'\ue0b2'"%F{black}%K{white}"$'$(git_prompt_info)'" %K{white}"
+        if [ "$POWERLINE_HIDE_GIT_PROMPT_STATUS" = "" ]; then
+            POWERLINE_GIT_INFO_RIGHT="%F{white}"$'\ue0b2'"%F{black}%K{white}"$'$(git_prompt_info)$(git_prompt_status)'" %K{white}"
+        else
+            POWERLINE_GIT_INFO_RIGHT="%F{white}"$'\ue0b2'"%F{black}%K{white}"$'$(git_prompt_info)'" %K{white}"
+        fi
     fi
 # fi
 
