@@ -124,8 +124,8 @@ fi
 POWERLINE_SEC1_TXT=%F{black}
 if [ "$POWERLINE_DETECT_SSH" != "" ]; then
   if [ -n "$SSH_CLIENT" ]; then
-    POWERLINE_SEC1_BG=%K{red}
-    POWERLINE_SEC1_FG=%F{red}
+    POWERLINE_SEC1_BG=%K{yellow}
+    POWERLINE_SEC1_FG=%F{yellow}
     POWERLINE_SEC1_TXT=%F{white}
   fi
 fi
