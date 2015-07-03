@@ -14,6 +14,8 @@ if [ "$POWERLINE_RIGHT_A" = "mixed" ]; then
   POWERLINE_RIGHT_A=%(?."$POWERLINE_DATE_FORMAT".%F{red}✘ %?)
 elif [ "$POWERLINE_RIGHT_A" = "exit-status" ]; then
   POWERLINE_RIGHT_A=%(?.%F{green}✔ %?.%F{red}✘ %?)
+elif [ "$POWERLINE_RIGHT_A" = "exit-status-on-fail" ]; then
+  POWERLINE_RIGHT_A=%(?..%F{red}✘ %?)
 elif [ "$POWERLINE_RIGHT_A" = "date" ]; then
   POWERLINE_RIGHT_A="$POWERLINE_DATE_FORMAT"
 fi
