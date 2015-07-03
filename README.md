@@ -52,6 +52,10 @@ If you want to display exit-code of last command next to time:
 ```
 POWERLINE_RIGHT_A="exit-status"
 ```
+or if you want it to appear only on faulty runs:
+```
+POWERLINE_RIGHT_A="exit-status-on-fail"
+```
 
 If you want to display date or non-zero-exit-code of last command next to time:
 ```
