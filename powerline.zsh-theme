@@ -126,10 +126,10 @@ if [ "$POWERLINE_DETECT_SSH" != "" ]; then
   if [ -n "$SSH_CLIENT" ]; then
     POWERLINE_SEC1_BG=%K{yellow}
     POWERLINE_SEC1_FG=%F{yellow}
-    POWERLINE_SEC1_TXT=%F{white}
-  fi
-  if [ "$POWERLINE_USER_NAME" = "" ]; then
-    POWERLINE_USER_NAME="%n@%M"
+    POWERLINE_SEC1_TXT=%F{black}
+    if [ "$POWERLINE_USER_NAME" = "" ]; then
+      POWERLINE_USER_NAME="%n@%M"
+    fi
   fi
 fi
 PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME %k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{white}%K{blue} "$POWERLINE_CURRENT_PATH"%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
