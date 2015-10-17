@@ -108,6 +108,11 @@ If you want full path:
 POWERLINE_FULL_CURRENT_PATH="true"
 ```
 
+If you want to customize the current path display (overrides full path above):
+```
+POWERLINE_CUSTOM_CURRENT_PATH="%3~"
+```
+
 If you want git info on right instead of left:
 
 ```
