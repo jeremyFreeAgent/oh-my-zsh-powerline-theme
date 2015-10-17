@@ -1,6 +1,6 @@
 # FreeAgent puts the powerline style in zsh !
 
-ZLE_RPROMPT_INDENT=0
+#ZLE_RPROMPT_INDENT=0
 
 if [ "$POWERLINE_DATE_FORMAT" = "" ]; then
   POWERLINE_DATE_FORMAT=%D{%Y-%m-%d}
