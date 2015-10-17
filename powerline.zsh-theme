@@ -1,7 +1,5 @@
 # FreeAgent puts the powerline style in zsh !
 
-ZLE_RPROMPT_INDENT=0
-
 if [ "$POWERLINE_DATE_FORMAT" = "" ]; then
   POWERLINE_DATE_FORMAT=%D{%Y-%m-%d}
 fi
@@ -20,17 +18,17 @@ elif [ "$POWERLINE_RIGHT_A" = "date" ]; then
   POWERLINE_RIGHT_A="$POWERLINE_DATE_FORMAT"
 fi
 
-if [ "$POWERLINE_SHORT_HOST_NAME" = "" ]; then 
+if [ "$POWERLINE_SHORT_HOST_NAME" = "" ]; then
     POWERLINE_HOST_NAME="%M"
 else
     POWERLINE_HOST_NAME="%m"
 fi
 
-if [ "$POWERLINE_HIDE_USER_NAME" = "" ] && [ "$POWERLINE_HIDE_HOST_NAME" = "" ]; then 
+if [ "$POWERLINE_HIDE_USER_NAME" = "" ] && [ "$POWERLINE_HIDE_HOST_NAME" = "" ]; then
     POWERLINE_USER_NAME="%n@$POWERLINE_HOST_NAME"
-elif [ "$POWERLINE_HIDE_USER_NAME" != "" ] && [ "$POWERLINE_HIDE_HOST_NAME" = "" ]; then 
+elif [ "$POWERLINE_HIDE_USER_NAME" != "" ] && [ "$POWERLINE_HIDE_HOST_NAME" = "" ]; then
     POWERLINE_USER_NAME="@$POWERLINE_HOST_NAME"
-elif [ "$POWERLINE_HIDE_USER_NAME" = "" ] && [ "$POWERLINE_HIDE_HOST_NAME" != "" ]; then 
+elif [ "$POWERLINE_HIDE_USER_NAME" = "" ] && [ "$POWERLINE_HIDE_HOST_NAME" != "" ]; then
     POWERLINE_USER_NAME="%n"
 else
     POWERLINE_USER_NAME=""
