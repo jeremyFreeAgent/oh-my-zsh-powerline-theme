@@ -6,7 +6,7 @@ oh-my-zsh Powerline style Theme
 Preview
 -------
 
-![Preview](http://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme/raw/master/preview.png)
+![Preview](https://raw.githubusercontent.com/jeremyFreeAgent/oh-my-zsh-powerline-theme/master/preview.png)
 
 Set Up
 ------
@@ -90,6 +90,12 @@ If you don't want to display your hostname (the green or red (root) colors are s
 POWERLINE_HIDE_HOST_NAME="true"
 ```
 
+If you only want to see the first part of the hostname (not the fqdn):
+
+```
+POWERLINE_SHORT_HOST_NAME="true"
+```
+
 If you want to hide git prompt status (new files, modified files, unmerged files, etc):
 ```
 POWERLINE_HIDE_GIT_PROMPT_STATUS="true"
@@ -110,6 +116,11 @@ If you want full path:
 
 ```
 POWERLINE_FULL_CURRENT_PATH="true"
+```
+
+If you want to customize the current path display (overrides full path above):
+```
+POWERLINE_CUSTOM_CURRENT_PATH="%3~"
 ```
 
 If you want git info on right instead of left:
