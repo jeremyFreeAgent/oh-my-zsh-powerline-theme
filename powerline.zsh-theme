@@ -1,5 +1,8 @@
 # FreeAgent puts the powerline style in zsh !
 
+# Fix character not in range
+local LC_ALL="" LC_CTYPE="en_US.UTF-8"
+
 if [ "$POWERLINE_DATE_FORMAT" = "" ]; then
   POWERLINE_DATE_FORMAT=%D{%Y-%m-%d}
 fi
