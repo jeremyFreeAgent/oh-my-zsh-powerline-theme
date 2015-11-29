@@ -36,10 +36,12 @@ else
     POWERLINE_USER_NAME=""
 fi
 
-POWERLINE_CURRENT_PATH="%d"
-
-if [ "$POWERLINE_FULL_CURRENT_PATH" = "" ]; then
-  POWERLINE_CURRENT_PATH="%1~"
+if [ "$POWERLINE_PATH" = "full" ]; then
+  POWERLINE_PATH="%1~"
+elif [ "$POWERLINE_PATH" = "short" ]; then
+  POWERLINE_PATH="%~"
+else
+  POWERLINE_PATH="%d"
 fi
 
 if [ "$POWERLINE_CUSTOM_CURRENT_PATH" != "" ]; then
@@ -137,7 +139,7 @@ if [ "$POWERLINE_DETECT_SSH" != "" ]; then
     POWERLINE_SEC1_TXT=%F{white}
   fi
 fi
-PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME %k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{white}%K{blue} "$POWERLINE_CURRENT_PATH"%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
+PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME %k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{white}%K{blue} "$POWERLINE_PATH"%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
 
 if [ "$POWERLINE_NO_BLANK_LINE" = "" ]; then
     PROMPT="
