@@ -141,6 +141,12 @@ If you want to tell if you are in a remote SSH session:
 POWERLINE_DETECT_SSH="true"
 ```
 
+If you want to hide virtualenv information in the prompt:
+
+```
+POWERLINE_HIDE_VIRTUAL_ENV="true"
+```
+
 Also you can change the icons of GIT info, default values are:
 ```
 POWERLINE_GIT_CLEAN="✔"
