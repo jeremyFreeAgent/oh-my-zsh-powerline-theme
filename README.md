@@ -67,10 +67,41 @@ If you want to display a custom text next to time:
 POWERLINE_RIGHT_A="blackfire.io"
 ```
 
+If you want to swap A and B sections (so the clock in always on the edge of the screen):
+```
+POWERLINE_RIGHT_ORDER="AB"
+```
+
 If you want to change the color of the `POWERLINE_RIGHT_A` element:
 ```
 POWERLINE_RIGHT_A_COLOR_FRONT="black"
 POWERLINE_RIGHT_A_COLOR_BACK="red"
+```
+
+If you want to change the color of the `POWERLINE_RIGHT_B` element:
+```
+POWERLINE_RIGHT_B_COLOR_FRONT="white"
+POWERLINE_RIGHT_B_COLOR_BACK="blue"
+```
+
+If you want to change the color of the `POWERLINE_SEC1` element (this is user@machine part, ROOT is self-explanatory):
+```
+POWERLINE_SEC1_COLOR_FRONT="white"
+POWERLINE_SEC1_COLOR_BACK="black"
+POWERLINE_SEC1_ROOT_COLOR_FRONT="white"
+POWERLINE_SEC1_ROOT_COLOR_BACK="red"
+```
+
+If you want to change the color of the `POWERLINE_GIT` element:
+```
+POWERLINE_GIT_COLOR_FRONT="white"
+POWERLINE_GIT_COLOR_BACK="black"
+```
+
+If you want to change the color of the `POWERLINE_PATH` element:
+```
+POWERLINE_PATH_COLOR_FRONT="black"
+POWERLINE_PATH_COLOR_BACK="yellow"
 ```
 
 If you want to change the date format to what you want:
