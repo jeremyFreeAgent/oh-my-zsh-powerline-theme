@@ -106,6 +106,12 @@ If you want to hide the right hand side prompt completely:
 POWERLINE_DISABLE_RPROMPT="true"
 ```
 
+If you want your input to start on a new line below the status elements of the prompt:
+
+```
+POWERLINE_MULTILINE="true"
+```
+
 If you don't want the blank line before the prompt:
 
 ```
@@ -118,7 +124,7 @@ If you want full path:
 POWERLINE_PATH="full"
 ```
 
-If you want to display ```~``` instead of your full path:  
+If you want to display ```~``` instead of your full path:
 
 ```
 POWERLINE_PATH="short"
