@@ -149,6 +149,11 @@ fi
 
 PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME $VENV_STATUS%k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{white}%K{blue} "$POWERLINE_PATH"%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
 
+if [ "$POWERLINE_MULTILINE" != "" ]; then
+    PROMPT=$PROMPT"
+ %B%F{blue}❯%f%b "
+fi
+
 if [ "$POWERLINE_NO_BLANK_LINE" = "" ]; then
     PROMPT="
 "$PROMPT
