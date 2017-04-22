@@ -37,9 +37,9 @@ else
 fi
 
 if [ "$POWERLINE_PATH" = "full" ]; then
-  POWERLINE_PATH="%1~"
-elif [ "$POWERLINE_PATH" = "short" ]; then
   POWERLINE_PATH="%~"
+elif [ "$POWERLINE_PATH" = "short" ]; then
+  POWERLINE_PATH="%1~"
 else
   POWERLINE_PATH="%d"
 fi
